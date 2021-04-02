@@ -1,0 +1,38 @@
+const int stepPin_1 = 8; 
+const int dirPin_1 = 9;
+
+const int stepPin_2 = 7; 
+const int dirPin_2 = 5;
+
+const int stepPin_3 = 6; 
+const int dirPin_3 = 4;
+
+const int mot_rpm = 30 //Considering half revolution in 1 second
+ 
+void setup() {
+  // Sets the two pins as Outputs
+  pinMode(stepPin_1,OUTPUT); 
+  pinMode(dirPin_1,OUTPUT);
+  pinMode(stepPin_2,OUTPUT); 
+  pinMode(dirPin_2,OUTPUT);
+  pinMode(stepPin_3,OUTPUT); 
+  pinMode(dirPin_3,OUTPUT);
+}
+void loop() {
+  digitalWrite(dirPin_1,HIGH); 
+        
+  if(a>=inputInt){
+    a = a-inputInt;
+    for(int i = 0; i<inputInt; i++){
+      for(int j = 0; j<100; j++){
+        digitalWrite(stepPin_1,HIGH); 
+        delayMicroseconds(150000/mot_rpm); 
+        digitalWrite(stepPin_1,LOW); 
+        delayMicroseconds(150000/mot_rpm);
+      }
+      delay(1000)
+    }
+    delay(1000)
+  }
+ 
+}
