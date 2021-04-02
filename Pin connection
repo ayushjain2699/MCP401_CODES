@@ -1,0 +1,21 @@
+- Arduino Mega
+- 3x4 matrix membrane keypad (requires 7 wires to connect to Arduino)
+- I2C enabled LCD (requires 4 wires to connect to Arduino)
+
+======== 3x4 membrane connection ========
+
+R1-R2-R3-R4-C1-C2-C3
+R1: Pin 38
+R2: Pin 39
+R3: Pin 40
+R4: Pin 41
+C1: Pin 42
+C2: Pin 43
+C3: Pin 44
+
+======== I2C enabled LCD ========
+
+LCD Pin Ground: Ground Pin of Arduino
+LCD Pin VCC: 5V Pin of Arduino
+LCD Pin SDA: Pin 20
+LCD Pin SCL: Pin 21

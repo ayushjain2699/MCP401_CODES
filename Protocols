@@ -1,0 +1,27 @@
+Available keypads: 0-9,*,#
+Memory: a,b,c (number of vials in A, B and C: initially zero)
+*: Yes
+#: No
+
+"Start the program?"
+- Yes/No
+
+	If Yes:
+	"Do you want to refill the vials?"
+	- Yes/No
+
+		If Yes:
+		"Number of vials in A: "
+		- Digits
+		"Number of vials in B: "
+		- Digits
+		"Number of vials in C: "
+		- Digits
+
+		If No:
+		"Requirement: "
+		- Digits
+		"A: a, B: b, C: c"
+
+	If No:
+	"A: a, B: b, C: c"
