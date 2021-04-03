@@ -17,7 +17,7 @@ const int dirPin_3 = 4;
 const int mot_rpm = 30 //Considering half revolution in 1 second
 
 char hexaKeys[ROWS][COLS] = {
-	{'1', '2', '3'},
+    {'1', '2', '3'},
     {'4', '5', '6'},
     {'7', '8', '9'},
     {'*', '0', '#'}
@@ -40,7 +40,7 @@ Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS)
 LiquidCrystal_I2C lcd(0x21, 16, 2);
 
 void setup(){
-	lcd.backlight();
+    lcd.backlight();
     lcd.init(); 
     inputString.reserve(10);
 
@@ -59,9 +59,9 @@ void loop(){
     digitalWrite(dirPin_2,HIGH);
     digitalWrite(dirPin_3,HIGH);
     lcd.clear();
-	lcd.setCursor(0,0);
-	lcd.print("Start?");
-	customKey = customKeypad.getKey();
+    lcd.setCursor(0,0);
+    lcd.print("Start?");
+    customKey = customKeypad.getKey();
     if (customKey=='*'){
     	lcd.setCursor(0, 1); 
     	lcd.print("Yes");
@@ -135,69 +135,69 @@ void loop(){
     		lcd.clear();
 	    	lcd.setCursor(0, 0); 
     		if(a>=inputInt){
-                a = a-inputInt;
-                lcd.print("Available!");
-                for(int i = 0; i<inputInt; i++){
-                    for(int j = 0; j<100; j++){
-                        digitalWrite(stepPin_1,HIGH); 
-                        delayMicroseconds(150000/mot_rpm); 
-                        digitalWrite(stepPin_1,LOW); 
-                        delayMicroseconds(150000/mot_rpm);
-                    }
-                    delay(1000)
-                }
-                delay(1000)
+			a = a-inputInt;
+			lcd.print("Available!");
+			for(int i = 0; i<inputInt; i++){
+			    for(int j = 0; j<100; j++){
+				digitalWrite(stepPin_1,HIGH); 
+				delayMicroseconds(150000/mot_rpm); 
+				digitalWrite(stepPin_1,LOW); 
+				delayMicroseconds(150000/mot_rpm);
+			    }
+			    delay(1000)
+			}
+			delay(1000)
     		}
     		else if(a+b>=inputInt){
-                lcd.print("Available!");
-                b = b+a-inputInt;
-                inputInt -= a 
-                while(a){
-                    for(int j = 0; j<100; j++){
-                        digitalWrite(stepPin_1,HIGH); 
-                        delayMicroseconds(150000/mot_rpm); 
-                        digitalWrite(stepPin_1,LOW); 
-                        delayMicroseconds(150000/mot_rpm);
-                    }
-                    delay(1000)
-                    a--;
-                }
-    			for(int i = 0; i<inputInt; i++){
-                    for(int j = 0; j<100; j++){
-                        digitalWrite(stepPin_2,HIGH); 
-                        delayMicroseconds(150000/mot_rpm); 
-                        digitalWrite(stepPin_2,LOW); 
-                        delayMicroseconds(150000/mot_rpm);
-                    }
-                    delay(1000)
-                }
-                delay(1000)
+			lcd.print("Available!");
+			b = b+a-inputInt;
+			inputInt -= a 
+			while(a){
+			    for(int j = 0; j<100; j++){
+				digitalWrite(stepPin_1,HIGH); 
+				delayMicroseconds(150000/mot_rpm); 
+				digitalWrite(stepPin_1,LOW); 
+				delayMicroseconds(150000/mot_rpm);
+			    }
+			    delay(1000)
+			    a--;
+			}
+			for(int i = 0; i<inputInt; i++){
+			    for(int j = 0; j<100; j++){
+				digitalWrite(stepPin_2,HIGH); 
+				delayMicroseconds(150000/mot_rpm); 
+				digitalWrite(stepPin_2,LOW); 
+				delayMicroseconds(150000/mot_rpm);
+			    }
+			    delay(1000)
+			}
+			delay(1000)
     		}
     		else if(a+b+c>=inputInt){
-                lcd.print("Available!");            
-    			a = 0;
-    			c = c+b+a-inputInt; 
-                inputInt -= b
-                while(b){
-                    for(int j = 0; j<100; j++){
-                        digitalWrite(stepPin_2,HIGH); 
-                        delayMicroseconds(150000/mot_rpm); 
-                        digitalWrite(stepPin_2,LOW); 
-                        delayMicroseconds(150000/mot_rpm);
-                    }
-                    delay(1000)
-                    b--;
-                }
-                for(int i = 0; i<inputInt; i++){
-                    for(int j = 0; j<100; j++){
-                        digitalWrite(stepPin_3,HIGH); 
-                        delayMicroseconds(150000/mot_rpm); 
-                        digitalWrite(stepPin_3,LOW); 
-                        delayMicroseconds(150000/mot_rpm);
-                    }
-                    delay(1000)
-                }
-                delay(1000)
+			lcd.print("Available!");            
+			a = 0;
+			c = c+b+a-inputInt; 
+			inputInt -= b
+			while(b){
+			    for(int j = 0; j<100; j++){
+				digitalWrite(stepPin_2,HIGH); 
+				delayMicroseconds(150000/mot_rpm); 
+				digitalWrite(stepPin_2,LOW); 
+				delayMicroseconds(150000/mot_rpm);
+			    }
+			    delay(1000)
+			    b--;
+			}
+			for(int i = 0; i<inputInt; i++){
+			    for(int j = 0; j<100; j++){
+				digitalWrite(stepPin_3,HIGH); 
+				delayMicroseconds(150000/mot_rpm); 
+				digitalWrite(stepPin_3,LOW); 
+				delayMicroseconds(150000/mot_rpm);
+			    }
+			    delay(1000)
+			}
+			delay(1000)
     		}
     		else{
     			lcd.clear();
@@ -243,28 +243,28 @@ void loop(){
     	lcd.print("No");
     	delay(2000);
     	lcd.clear();
-		lcd.setCursor(0, 0); 
-		lcd.print("A:");
-		lcd.setCursor(0, 1); 
-		lcd.print(a)
-		delay(2000);
-		lcd.clear();
-		lcd.setCursor(0, 0); 
-		lcd.print("B:");
-		lcd.setCursor(0, 1); 
-		lcd.print(b)
-		delay(2000);
-		lcd.clear();
-		lcd.setCursor(0, 0); 
-		lcd.print("C:");
-		lcd.setCursor(0, 1); 
-		lcd.print(c)
-		delay(2000);
-		lcd.clear();
-		lcd.setCursor(0, 0); 
-		lcd.print("Total:");
-		lcd.setCursor(0, 1); 
-		lcd.print(total)
-		delay(2000);
+	lcd.setCursor(0, 0); 
+	lcd.print("A:");
+	lcd.setCursor(0, 1); 
+	lcd.print(a)
+	delay(2000);
+	lcd.clear();
+	lcd.setCursor(0, 0); 
+	lcd.print("B:");
+	lcd.setCursor(0, 1); 
+	lcd.print(b)
+	delay(2000);
+	lcd.clear();
+	lcd.setCursor(0, 0); 
+	lcd.print("C:");
+	lcd.setCursor(0, 1); 
+	lcd.print(c)
+	delay(2000);
+	lcd.clear();
+	lcd.setCursor(0, 0); 
+	lcd.print("Total:");
+	lcd.setCursor(0, 1); 
+	lcd.print(total)
+	delay(2000);
     }
 }
